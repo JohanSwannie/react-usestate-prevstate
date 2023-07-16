@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-function DetermineDistance() {
+const DetermineDistance = () => {
   const [meters, setMeters] = useState(10);
 
-  function incrementMeters() {
+  const incrementMeters = () => {
     setMeters((prevState) => prevState + 10);
-  }
+  };
 
   return (
     <div>
@@ -13,14 +13,14 @@ function DetermineDistance() {
       <button onClick={incrementMeters}>Old man walk</button>
     </div>
   );
-}
+};
 
-function App() {
+const App = () => {
   return (
     <div>
       <DetermineDistance />
     </div>
   );
-}
+};
 
 export default App;
