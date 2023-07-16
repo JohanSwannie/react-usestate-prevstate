@@ -9,8 +9,7 @@ function DetermineDistance() {
 
   return (
     <div>
-      The old man has walked {meters} meters today.
-      <br />
+      The old man has walked {meters} meters today
       <button onClick={incrementMeters}>Old man walk</button>
     </div>
   );
@@ -18,7 +17,7 @@ function DetermineDistance() {
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <DetermineDistance />
     </div>
   );
