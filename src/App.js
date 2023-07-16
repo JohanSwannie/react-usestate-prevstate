@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+function DetermineDistance() {
+  const [meters, setMeters] = useState(10);
+
+  function incrementMeters() {
+    setMeters((prevState) => prevState + 10);
+  }
+
+  return (
+    <div>
+      The old man has walked {meters} meters today.
+      <br />
+      <button onClick={incrementMeters}>Old man walk</button>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DetermineDistance />
     </div>
   );
 }
