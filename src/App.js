@@ -19,10 +19,7 @@ const DetermineDistance = () => {
   const [minuteDescription, setMinuteDescription] = useState("Minute");
   const [secondDescription, setSecondDescription] = useState("Second");
 
-  const incrementMeters = () => {
-    setMeters((prevState) => prevState + 10);
-    setTotalDistanceLeft(totalDistanceLeft - 10);
-
+  const calculateTimeDifference = () => {
     const d2 = new Date();
     let currentTime2 = d2.getTime();
     const timeDifference = currentTime2 - currentTime1;
@@ -80,6 +77,11 @@ const DetermineDistance = () => {
     } else {
       setSecondDescription("Second");
     }
+  };
+  const incrementMeters = () => {
+    setMeters((prevState) => prevState + 10);
+    setTotalDistanceLeft(totalDistanceLeft - 10);
+    calculateTimeDifference();
   };
 
   return (
