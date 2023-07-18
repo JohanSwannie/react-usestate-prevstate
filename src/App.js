@@ -15,6 +15,9 @@ const DetermineDistance = () => {
   const [isHours, setIsHours] = useState(false);
   const [isMinutes, setIsMinutes] = useState(false);
   const [isSeconds, setIsSeconds] = useState(false);
+  const [hourDescription, setHourDescription] = useState("Hour");
+  const [minuteDescription, setMinuteDescription] = useState("Minute");
+  const [secondDescription, setSecondDescription] = useState("Second");
 
   const incrementMeters = () => {
     setMeters((prevState) => prevState + 10);
@@ -61,6 +64,22 @@ const DetermineDistance = () => {
       setIsSeconds(true);
       setActualTimeDifferenceInSeconds(endTimeDifference.substring(3, 5));
     }
+
+    if (endTimeDifference.substring(0, 1) > 1) {
+      setHourDescription("Hours");
+    }
+
+    if (endTimeDifference.substring(1, 3) > 1) {
+      setMinuteDescription("Minutes");
+    } else {
+      setMinuteDescription("Minute");
+    }
+
+    if (endTimeDifference.substring(3, 5) > 1) {
+      setSecondDescription("Seconds");
+    } else {
+      setSecondDescription("Second");
+    }
   };
 
   return (
@@ -74,21 +93,22 @@ const DetermineDistance = () => {
       {isHours && (
         <h4>
           The time it took him to complete {meters} meters, is{" "}
-          {actualTimeDifferenceInHours} Hours + {actualTimeDifferenceInMinutes}{" "}
-          Minutes + {actualTimeDifferenceInSeconds} Seconds.
+          {actualTimeDifferenceInHours} {hourDescription} +{" "}
+          {actualTimeDifferenceInMinutes} {minuteDescription} +{" "}
+          {actualTimeDifferenceInSeconds} {secondDescription}.
         </h4>
       )}
       {isMinutes && (
         <h4>
           The time it took him to complete {meters} meters, is{" "}
-          {actualTimeDifferenceInMinutes} Minutes +{" "}
-          {actualTimeDifferenceInSeconds} Seconds.
+          {actualTimeDifferenceInMinutes} {minuteDescription} +{" "}
+          {actualTimeDifferenceInSeconds} {secondDescription}.
         </h4>
       )}
       {isSeconds && (
         <h4>
           The time it took him to complete {meters} meters, is{" "}
-          {actualTimeDifferenceInSeconds} Seconds
+          {actualTimeDifferenceInSeconds} {secondDescription}.
         </h4>
       )}
       <br />
