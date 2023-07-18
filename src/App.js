@@ -84,6 +84,12 @@ const DetermineDistance = () => {
     calculateTimeDifference();
   };
 
+  if (totalDistanceLeft === 0) {
+    return (
+      <h4>The Old Man has completed his mission in walking 5000 meters</h4>
+    );
+  }
+
   return (
     <div>
       <h4>The old man has walked {meters} meters today</h4>
